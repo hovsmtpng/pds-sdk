@@ -1,0 +1,17 @@
+import { ColumnMeta } from "@tanstack/react-table";
+
+declare module "@tanstack/react-table" {
+  interface ColumnMeta<TData, TValue> {
+    /** Jenis filter yang digunakan untuk column */
+    filter?: "search" | "select" | "date" | "daterange";
+
+    /** Format tampilan atau parsing date */
+    format?: string;
+
+    /** Pilihan untuk select filter */
+    options?: { label: string; value: string }[];
+
+    /** Judul kolom custom (untuk menu visibility misalnya) */
+    headerTitle?: string;
+  }
+}
