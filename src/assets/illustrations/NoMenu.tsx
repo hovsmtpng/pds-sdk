@@ -1,6 +1,8 @@
 import React from "react";
-
-export default function NoMenu({ className }) {
+interface NoMenuProps {
+  className?: string;
+}
+const NoMenu: React.FC<NoMenuProps> = ({ className }) => {
   return (
     <div className={className}>
       <svg
@@ -37,3 +39,5 @@ export default function NoMenu({ className }) {
     </div>
   );
 }
+
+export default NoMenu;

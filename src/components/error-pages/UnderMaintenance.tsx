@@ -32,3 +32,5 @@ export const UnderMaintenance: React.FC = () => {
         </div>
     );
 };
+
+export default UnderMaintenance;

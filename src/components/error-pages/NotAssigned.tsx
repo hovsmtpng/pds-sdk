@@ -1,8 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import NotAssigned from "@/assets/svg/error-pages/NotAssigned";
+import SvgNotAssigned from "@/assets/svg/error-pages/NotAssigned";
 
-export const PageNotAssigned: React.FC = () => {
+export const NotAssigned: React.FC = () => {
   const navigate = useNavigate();
 
   return (
@@ -21,7 +21,7 @@ export const PageNotAssigned: React.FC = () => {
       {/* Main Content */}
       <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-0 py-10 max-w-7xl">
         {/* Illustration */}
-        <NotAssigned />
+        <SvgNotAssigned />
 
         <h1 className="text-3xl text-gray-800 dark:text-gray-200 mb-2">
           Role not assigned
@@ -34,3 +34,5 @@ export const PageNotAssigned: React.FC = () => {
     </div>
   );
 };
+
+export default NotAssigned;

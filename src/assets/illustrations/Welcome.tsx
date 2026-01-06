@@ -1,6 +1,15 @@
 import React from "react";
 
-export function WelcomeSVG({
+interface WelcomeSVGProps {
+    className?: string;
+    mode?: string;
+    primary?: string;
+    accent?: string;
+    auth?: any;
+    modules?: any;
+}
+
+const WelcomeSVG: React.FC<WelcomeSVGProps> = ({
     className = "",
     mode = "light",
     primary = "#6366F1", // indigo-500
@@ -8,7 +17,7 @@ export function WelcomeSVG({
     auth,
     modules,
     ...props
-}) {
+}) => {
     const isDark = mode === "dark";
     const bg1 = isDark ? "#0B1020" : "#F8FAFF";
     const bg2 = isDark ? "#0F172A" : "#EEF2FF";

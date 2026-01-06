@@ -14,3 +14,5 @@ export function withAppContext<P extends object, A extends object>(
         });
     };
 }
+
+export default withAppContext;

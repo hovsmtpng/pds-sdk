@@ -17,6 +17,13 @@ interface DecodedModule {
 
 type LoginFn = (user: DecodedUser, module: DecodedModule) => void;
 
+const VITE_URL_PORTAL_PUNINAR_APP_MAIN = import.meta.env.VITE_URL_PORTAL_PUNINAR_APP_MAIN as string;
+const VITE_KEY_SSO_PUNINAR = import.meta.env.VITE_KEY_SSO_PUNINAR as string;
+const VITE_URL_SSO_CHECK_GENERAL_USER = import.meta.env.VITE_URL_SSO_CHECK_GENERAL_USER as string;
+const VITE_KEY_MODULE = import.meta.env.VITE_KEY_MODULE as string;
+const VITE_URL_SSO = import.meta.env.VITE_URL_SSO as string;
+const VITE_KEY_STATIC = import.meta.env.VITE_KEY_STATIC as string;
+
 const formatTimestamp = (date: Date): string => {
     const options: Intl.DateTimeFormatOptions = {
         year: "numeric",
@@ -42,7 +49,7 @@ const formatTimestamp = (date: Date): string => {
 };
 
 const handleSessionError = (): void => {
-    const urlLobby = import.meta.env.VITE_URL_PORTAL_PUNINAR_APP_MAIN as string;
+    const urlLobby = VITE_URL_PORTAL_PUNINAR_APP_MAIN;
     Swal.fire({
         title: "Akses anda tidak aktif",
         icon: "warning",
@@ -60,18 +67,18 @@ const validateSession = async (
     login: LoginFn
 ): Promise<void> => {
     const timestamp = formatTimestamp(new Date());
-    const keySsoPuninar = import.meta.env.VITE_KEY_SSO_PUNINAR as string;
+    const keySsoPuninar = VITE_KEY_SSO_PUNINAR;
     const keyPun = SHA256(`${keySsoPuninar}${timestamp}`).toString(Hex);
 
     try {
         const response: AxiosResponse<any> = await axios.post(
-            import.meta.env.VITE_URL_SSO_CHECK_GENERAL_USER as string,
+            VITE_URL_SSO_CHECK_GENERAL_USER,
             {
                 username: decodedUser.username,
                 session_token: decodedUser.session_token,
                 param: {
                     module: decodedModule.module,
-                    key_module: import.meta.env.VITE_KEY_MODULE,
+                    key_module: VITE_KEY_MODULE,
                 },
             },
             {
@@ -106,7 +113,7 @@ export const handleLogout = async (): Promise<void> => {
         return;
     }
 
-    const keySsoPuninar = import.meta.env.VITE_KEY_SSO_PUNINAR as string;
+    const keySsoPuninar = VITE_KEY_SSO_PUNINAR;
     const timestamp = formatTimestamp(new Date());
 
     const encryptionKey = `${keySsoPuninar}${timestamp}`;
@@ -118,7 +125,7 @@ export const handleLogout = async (): Promise<void> => {
     };
 
     const response = await axios.post(
-        (import.meta.env.VITE_URL_SSO as string) + "auth/logout",
+        (VITE_URL_SSO) + "auth/logout",
         JSON.stringify(body),
         {
             headers: {
@@ -132,7 +139,7 @@ export const handleLogout = async (): Promise<void> => {
     localStorage.clear();
 
     if (response.status === 200) {
-        window.location.href = import.meta.env.VITE_URL_PORTAL_PUNINAR_APP_MAIN as string;
+        window.location.href = VITE_URL_PORTAL_PUNINAR_APP_MAIN;
     } else {
         console.log(response);
     }
@@ -145,7 +152,7 @@ export const checkSession = async (
     if (location.pathname.startsWith("/public")) return;
 
     const params = new URLSearchParams(window.location.search);
-    const secretKey = import.meta.env.VITE_KEY_STATIC as string;
+    const secretKey = VITE_KEY_STATIC;
     const userParam = params.get("user");
     const moduleParam = params.get("module");
 
@@ -156,7 +163,7 @@ export const checkSession = async (
         if (params.size === 0) return;
 
         try {
-            if(!userParam || !moduleParam) return;
+            if (!userParam || !moduleParam) return;
             const decodedUser = base64DecodeWithSecret(userParam, secretKey) as DecodedUser;
             const decodedModule = base64DecodeWithSecret(moduleParam, secretKey) as DecodedModule;
 
@@ -177,7 +184,7 @@ export const checkSession = async (
 
     try {
         console.log(userParam, moduleParam);
-        if(!userParam || !moduleParam) return;
+        if (!userParam || !moduleParam) return;
         const decodedUser = base64DecodeWithSecret(userParam, secretKey) as DecodedUser;
         const decodedModule = base64DecodeWithSecret(moduleParam, secretKey) as DecodedModule;
         await validateSession(decodedUser, decodedModule, login);

@@ -1,6 +1,26 @@
 import { motion, AnimatePresence } from "framer-motion";
+import type { ReactNode } from "react";
 
-export const AnimatedSection = ({
+/* =========================
+   Types
+========================= */
+
+type AnimationType = "fade-up" | "slide-left" | "zoom";
+
+interface AnimatedSectionProps {
+    children: ReactNode;
+    visible?: boolean;
+    duration?: number;
+    delay?: number;
+    animation?: AnimationType;
+    className?: string;
+}
+
+/* =========================
+   Component
+========================= */
+
+export const AnimatedSection: React.FC<AnimatedSectionProps> = ({
     children,
     visible = true,
     duration = 0.35,
@@ -8,7 +28,14 @@ export const AnimatedSection = ({
     animation = "fade-up", // fade-up | slide-left | zoom
     className = "",
 }) => {
-    const variants = {
+    const variants: Record<
+        AnimationType,
+        {
+            initial: Record<string, number>;
+            animate: Record<string, number>;
+            exit: Record<string, number>;
+        }
+    > = {
         "fade-up": {
             initial: { opacity: 0, y: 20, scale: 0.97 },
             animate: { opacity: 1, y: 0, scale: 1 },

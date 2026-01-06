@@ -6,7 +6,7 @@
 
 // error-pages
 // export * from "@/components/error-pages/NotFound";
-export { PageNotAssigned } from "@/components/error-pages/PageNotAssigned";
+export { NotAssigned } from "@/components/error-pages/NotAssigned";
 export { NotFound } from "@/components/error-pages/NotFound";
 export { UnderMaintenance } from "@/components/error-pages/UnderMaintenance";
 export { InternalServerError } from "@/components/error-pages/InternalServerError";
@@ -14,7 +14,6 @@ export { NoMenuAvailable } from "@/components/error-pages/NoMenuAvailable";
 
 // form
 // export * from "@/components/form/form-input";
-// export * from "@/components/form/default";
 
 // ui
 export * from "@/components/ui/button";

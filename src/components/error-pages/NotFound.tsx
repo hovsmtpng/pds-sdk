@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import PageNotFound from "@/assets/svg/error-pages/PageNotFound";
+import SvgPageNotFound from "@/assets/svg/error-pages/PageNotFound";
 
 export const NotFound: React.FC = () => {
   const navigate = useNavigate();
@@ -22,7 +22,7 @@ export const NotFound: React.FC = () => {
       {/* Main Content */}
       <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-0 py-10 max-w-7xl">
         {/* Illustration */}
-        <PageNotFound />
+        <SvgPageNotFound />
 
         <h1 className="text-5xl text-gray-800 dark:text-gray-200 mb-2">404</h1>
 
@@ -41,3 +41,5 @@ export const NotFound: React.FC = () => {
     </div>
   );
 };
+
+export default NotFound;

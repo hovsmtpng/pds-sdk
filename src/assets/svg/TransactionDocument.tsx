@@ -10,7 +10,7 @@ export default function TransactionDocument() {
             <g clipPath="url(#clip0_1534_210990)">
                 <g opacity="0.25">
                     <foreignObject x="-40.7076" y="-13.0729" width="206.449" height="247.4">
-                        <div
+                        <svg
                             xmlns="http://www.w3.org/1999/xhtml"
                             style={{
                                 backdropFilter: "blur(12px)",
@@ -18,7 +18,7 @@ export default function TransactionDocument() {
                                 height: "100%",
                                 width: "100%",
                             }}
-                        ></div>
+                        ></svg>
                     </foreignObject>
 
                     <path
@@ -28,7 +28,7 @@ export default function TransactionDocument() {
                     />
 
                     <foreignObject x="-35.5635" y="-24.1597" width="232.886" height="256.89">
-                        <div
+                        <svg
                             xmlns="http://www.w3.org/1999/xhtml"
                             style={{
                                 backdropFilter: "blur(12px)",
@@ -36,7 +36,7 @@ export default function TransactionDocument() {
                                 height: "100%",
                                 width: "100%",
                             }}
-                        ></div>
+                        ></svg>
                     </foreignObject>
 
                     <ellipse
@@ -51,7 +51,7 @@ export default function TransactionDocument() {
 
                     <g filter="url(#filter2_d_1534_210990)">
                         <foreignObject x="14.3994" y="31.5454" width="123.895" height="143.122">
-                            <div
+                            <svg
                                 xmlns="http://www.w3.org/1999/xhtml"
                                 style={{
                                     backdropFilter: "blur(12px)",
@@ -59,7 +59,7 @@ export default function TransactionDocument() {
                                     height: "100%",
                                     width: "100%",
                                 }}
-                            ></div>
+                            ></svg>
                         </foreignObject>
 
                         <path
@@ -69,7 +69,7 @@ export default function TransactionDocument() {
                         />
 
                         <foreignObject x="17.0945" y="26.1262" width="136.368" height="147.84">
-                            <div
+                            <svg
                                 xmlns="http://www.w3.org/1999/xhtml"
                                 style={{
                                     backdropFilter: "blur(12px)",
@@ -77,7 +77,7 @@ export default function TransactionDocument() {
                                     height: "100%",
                                     width: "100%",
                                 }}
-                            ></div>
+                            ></svg>
                         </foreignObject>
 
                         <ellipse
@@ -93,7 +93,7 @@ export default function TransactionDocument() {
 
                     <g filter="url(#filter5_d_1534_210990)">
                         <foreignObject x="43.8979" y="56.4089" width="82.7617" height="87.2748">
-                            <div
+                            <svg
                                 xmlns="http://www.w3.org/1999/xhtml"
                                 style={{
                                     backdropFilter: "blur(12px)",
@@ -101,7 +101,7 @@ export default function TransactionDocument() {
                                     height: "100%",
                                     width: "100%",
                                 }}
-                            ></div>
+                            ></svg>
                         </foreignObject>
 
                         <ellipse

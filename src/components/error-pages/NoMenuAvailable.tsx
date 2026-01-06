@@ -50,3 +50,5 @@ export const NoMenuAvailable: React.FC = () => {
     </div>
   );
 };
+
+export default NoMenuAvailable;

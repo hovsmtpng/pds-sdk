@@ -1,5 +1,7 @@
+import React from "react";
+
 interface OdongIconProps {
-  className?: string;
+    className?: string;
 }
 
 const OdongIcon: React.FC<OdongIconProps> = ({ className }) => {

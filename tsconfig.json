@@ -17,5 +17,6 @@
     "paths": {
       "@/*": ["./src/*"]
     }
-  }
+  },
+  "include": ["src/types/vite-env.d.ts", "src/types/env.d.ts"]
 }

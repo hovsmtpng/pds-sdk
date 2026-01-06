@@ -86,7 +86,7 @@ export interface DataGridProps<TData extends object> {
     // untuk kebutuhan search columns
     isServerSide?: boolean, // custom by puninar dev
     serverSideFilterValues?: Record<string, any>, // custom by puninar dev
-    onChangeFilterColumns?: () => void, // custom by puninar dev
+    onChangeFilterColumns?: (key: string, value: any) => void, // custom by puninar dev
   };
   tableClassNames?: {
     base?: string;

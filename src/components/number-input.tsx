@@ -1,6 +1,6 @@
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { forwardRef, useCallback, useEffect, useState, useRef } from 'react';
-import { NumericFormat, type NumericFormatProps } from 'react-number-format';
+import { NumericFormat, NumericFormatProps } from 'react-number-format';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 

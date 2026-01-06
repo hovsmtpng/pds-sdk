@@ -26,8 +26,8 @@ import {
 } from "@/components/ui/sidebar"
 
 import OdongIcon from "@/assets/OdongIcon"
-import { AuthContext, useAuth } from "@/auth/AuthContext"
-import {NoMenuAvailable} from "./error-pages/NoMenuAvailable"
+import { useAuth } from "@/auth/AuthContext"
+import NoMenuAvailable from "./error-pages/NoMenuAvailable"
 import { convertRoutesToNavItems } from "@/lib/convertRoutesToNavItems"
 
 // 🧠 Types

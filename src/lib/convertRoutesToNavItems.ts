@@ -1,4 +1,4 @@
-import type { RouteItem, NavItem, NavSubItem } from "@/types"
+import { RouteItem, NavItem, NavSubItem } from "@/types"
 
 export function convertRoutesToNavItems(routes: RouteItem[]): NavItem[] {
   return routes

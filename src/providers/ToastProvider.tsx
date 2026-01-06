@@ -4,7 +4,7 @@ import React, {
     createContext,
     useContext,
     useCallback,
-    type ReactNode,
+    ReactNode,
 } from "react";
 import { toast } from "sonner";
 import { Alert, AlertIcon, AlertTitle } from "@/components/ui/alert";

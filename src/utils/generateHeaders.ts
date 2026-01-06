@@ -1,7 +1,8 @@
 import SHA256 from "crypto-js/sha256";
 import Hex from "crypto-js/enc-hex";
+import { getLocalStorage } from "./localStorage";
 
-const KEY_SSO_PUNINAR = "SYd3VPunSS0#@!" as string;
+const KEY_SSO_PUNINAR = import.meta.env.VITE_KEY_SSO_PUNINAR as string;
 
 
 export function generateHeaders(): Record<string, string> {
@@ -12,6 +13,7 @@ export function generateHeaders(): Record<string, string> {
 
   return {
     "Content-Type": "application/json",
+    "Authorization": `Bearer ${getLocalStorage("odong-token")}`,
     "key-puninar": keyPun,
     timestamp,
   };
