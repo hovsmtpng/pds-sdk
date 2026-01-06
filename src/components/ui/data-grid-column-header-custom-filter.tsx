@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Column } from "@tanstack/react-table"
+import { type Column } from "@tanstack/react-table"
 import dayjs from "dayjs"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -7,7 +7,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { Calendar } from "@/components/ui/calendar"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Search, Filter, CalendarSearch, FunnelPlus } from "lucide-react"
-import { DateRange } from "react-day-picker"
+import { type DateRange } from "react-day-picker"
 
 type Option = { label: string; value: string }
 
