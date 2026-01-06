@@ -162,3 +162,6 @@ export * from "@/providers/ToastProvider";
 
 // src/utils
 export * from "@/utils";
+
+// src/i18n
+// export * from "@/i18n";
