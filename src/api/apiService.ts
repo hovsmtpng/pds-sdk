@@ -1,38 +1,46 @@
-// src/api/apiCall.ts
-import apiService from "@/api/interceptor";
-import type { AxiosRequestConfig, Method } from "axios";
+import apiService from '@/api/interceptor'
+import type { AxiosRequestConfig, Method } from 'axios'
 
-/* =========================
-   Types
-========================= */
+type ApiCallOptions = AxiosRequestConfig
 
-export type ApiParams = Record<string, unknown>;
-
-export interface ApiResponse<T = unknown> {
-  data: T;
-  meta?: unknown;
-}
-
-/* =========================
-   Function
-========================= */
-
-export async function apiCall<T = unknown>(
+export async function apiCall<T = any>(
   endpoint: string,
-  method: Method = "POST",
-  params: ApiParams = {}
-): Promise<ApiResponse<T>> {
+  method: Method = 'POST',
+  params: Record<string, any> | FormData = {},
+  options: ApiCallOptions = {}
+): Promise<T> {
+
+  console.log(endpoint)
+
+  const isAbsoluteUrl = /^https?:\/\//i.test(endpoint)
+  const isFormData =
+    typeof FormData !== 'undefined' && params instanceof FormData
+
   const config: AxiosRequestConfig = {
     url: endpoint,
     method,
-  };
-
-  if (method === "POST" || method === "PUT") {
-    config.data = params;
-  } else {
-    config.params = params;
+    ...options,
+    headers: {
+      ...(options.headers || {}),
+    },
   }
 
-  const response = await apiService(config);
-  return response.data;
+  if (method === 'POST' || method === 'PUT' || method === 'PATCH') {
+    config.data = params
+
+    if (isFormData) {
+      delete config.headers?.['Content-Type']
+      delete config.headers?.['content-type']
+    } else if (!isAbsoluteUrl || !config.headers?.['Content-Type']) {
+      config.headers = {
+        ...config.headers,
+        'Content-Type': config.headers?.['Content-Type'] || 'application/json',
+      }
+    }
+  } else {
+    config.params = params
+  }
+
+  const response = await apiService<T>(config)
+  return response.data
 }
